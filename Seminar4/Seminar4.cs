@@ -52,7 +52,7 @@ int Fartorial(int a)
 Console.Write("input number: ");
 int num = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Faktorial = " + Fartorial(num));
-*/
+
 // Задача 4 Напишите программу, которая выводит массив из 8 элементов, заполненный нулями и единицами в случайном порядке.
 // [1,0,1,1,0,1,0,0]
 int N = 8;
@@ -74,3 +74,53 @@ void PrintArray(int[] array)
 }
 
 PrintArray(SetArray(N));
+*/
+//Задача 5 Задать массив из 12 элементов, заполненный случайными числами из промежутка -9 до 9 и найти сумму положительных и отрицательных элементов
+// Задать(создать) массив-вывести массив-форматировать массив
+//Метод создания случайного массива
+int[] CreateRandomArray(int size, int min, int max)
+{
+    int[] array = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        array[i] = new Random().Next(min, max+1);
+    }
+    return array;
+}
+//Метод создания случайного массива с ручным заполнением
+int[] CreateArray(int size)
+{
+    int[] array = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        Console.WriteLine("Input " + i + "element: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    return array;
+}
+//вывод массива на экран типовой 
+void ShowArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+        Console.Write(array[i] + " ");
+        Console.WriteLine();
+}
+void FindSumOfElements(int[] array)
+{
+    int plusSum = 0;
+    int minusSum = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > 0)
+            plusSum += array[i];
+        else
+            minusSum += array[i];
+    }
+    Console.WriteLine("Sum of pozitive elements is " + plusSum);
+    Console.WriteLine("Sum of negative elements is " + minusSum);
+ }
+
+ //Решение
+ int[] myArray = CreateRandomArray(6, -5, 5);
+ShowArray(myArray);
+FindSumOfElements(myArray);
